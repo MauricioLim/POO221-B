@@ -1,0 +1,11 @@
+Definição: 
+
+	•Nome: Bork
+	•Tipo: RPG
+	•Enredo:Um jogo de rpg com interações em comando de texto! 
+	•Pontuação:A pontuação é ganha na interação com o cenario
+		  , ao completar alguns landmarks, dar dano e matar inimigos.
+	•Recompensas:
+		♦Pugilista : matar dragão no murro.
+		♦Detetive : achar o easter egg escondido.
+		♦Intocado : matar o dragão sem levar dano.
