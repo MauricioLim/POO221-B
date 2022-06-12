@@ -1,0 +1,5 @@
+Conhecimentos Extra Necessarios:
+
+	•Colocar imagens em janelas do java.
+	•Serialização.
+	•Polimorfismo.
