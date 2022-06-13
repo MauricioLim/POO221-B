@@ -19,7 +19,21 @@ public class Bork {
         System.out.println("Seja bem-vindo ao Bork! Digite 'i' para visualizar as instrucoes, ou qualquer coisa para comecar o jogo.");
 
         if (s.next().equals("i")) {
-            i.showInstructions();
+            System.out.println("Acao:       Objeto(s):");
+            System.out.println("===================================");
+            System.out.println("CENARIO: CASA");
+            System.out.println("===================================");
+            System.out.println("pegar       espada, machado, frasco");
+            System.out.println("mover       tapete");
+            System.out.println("abrir       escotilha");
+            System.out.println("descer      escada");
+            System.out.println("===================================");
+            System.out.println("CENARIO: CAVERNA");
+            System.out.println("===================================");
+            System.out.println("atacar      dragao");
+            System.out.println("usar        pocao");
+            System.out.println("-----------------------------------");
+            System.out.println("DIGITE QUALQUER COISA PARA SAIR");
             s.next();
         }
 
@@ -51,7 +65,7 @@ public class Bork {
                     else {
                         p.setScore(p.getScore() + 10);
                         System.out.println("Voce agora tem um machado.");
-						w.setName("axe");
+			w.setName("axe");
                         w.setEquipped(true);
                     } 
                     break;
