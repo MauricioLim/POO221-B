@@ -11,7 +11,7 @@ public class Bork {
 
         Player p = new Player(20, 0);
         Weapon w = new Weapon(false);
-        Dragon d = new Dragon(20);
+        Dragon d = new Dragon(15);
         House h = new House("Voce esta na sala de estar. Ha uma espada pendurada na parede, e, encostado no sofa, um machado de ferro. Tambem ha um belo tapete no centro e uma mesa redonda com um pequeno frasco de vidro.", true, false, false, false);
         Cave c = new Cave("Descendo as escadas, voce chega a uma caverna subterranea. Nela ha um enorme dragao adormecido. Ele acorda com o barulho, e, vendo voce, prepara-se para desferir um golpe.");
 
@@ -155,13 +155,11 @@ public class Bork {
                         System.out.println("Acerto critico! Voce desfere um grande golpe; atarantado, o dragao perde 5 pontos de vida.");
                         break;
                         case 4:
-                        p.setHealth(p.getHealth() - d.getDamage()); 
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 40);
                         System.out.println("Sucesso! Voce acerta o pescoco da fera, fazendo 4 pontos de dano.");
                         break;
                         case 3:
-                        p.setHealth(p.getHealth() - d.getDamage()); 
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 30);
                         System.out.println("Sucesso! Voce acerta o pescoco da fera, fazendo 3 pontos de dano.");
