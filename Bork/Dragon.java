@@ -7,12 +7,16 @@ public class Dragon {
     private int damage;
     private int health;
 
+    public Dragon(int h) {
+        this.setHealth(h);
+    }
+
     public void setDamage(int d) {
         this.damage = 5;
     }
 
     public void setHealth(int h) {
-        this.health = 15;
+        this.health = h;
     }
 
     public int getDamage() {
