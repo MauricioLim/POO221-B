@@ -5,16 +5,15 @@ public class House {
     private boolean trapdoorIsOpen;
     private boolean bottleIsTaken;
 
-    public House(String d, boolean iath, boolean rir, boolean tio, boolean bit) {
-        this.setDescription(d);
+    public House(boolean iath, boolean rir, boolean tio, boolean bit) {
         this.setIsAtTheHouse(iath);
         this.setBottleIsTaken(bit);
         this.setRugIsRemoved(rir); 
         this.setTrapdoorIsOpen(tio);
     }
 
-    public void setDescription(String d) {
-        this.description = d;
+    public void setDescription() {
+        this.description = "Voce esta na sala de estar. Ha uma espada pendurada na parede, e, encostado no sofa, um machado de ferro. Tambem ha um belo tapete no centro e uma mesa redonda com um pequeno frasco de vidro.";
     }
 
     public void setIsAtTheHouse(boolean iath) {
