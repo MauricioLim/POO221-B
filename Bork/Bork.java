@@ -152,7 +152,7 @@ public class Bork {
                         case 5:
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 50);
-                        System.out.println("Acerto critico! Voce desfere um grande golpe. Atarantado, o dragao perde 5 pontos de vida.");
+                        System.out.println("Acerto critico! Voce desfere um grande golpe; atarantado, o dragao perde 5 pontos de vida.");
                         break;
                         case 4:
                         p.setHealth(p.getHealth() - d.getDamage()); 
@@ -169,7 +169,7 @@ public class Bork {
                         case 0:
                         p.setHealth(p.getHealth() - d.getDamage());
                         p.setScore(p.getScore() - 50);
-                        System.out.println("Errou! Seu golpe passa a centimetros do dragao. Ileso, fazendo 5 pontos de dano");
+                        System.out.println("Errou! Seu golpe passa a centimetros do dragao. Ileso, ele revida, fazendo 5 pontos de dano");
                         break;
                     }
                 }
