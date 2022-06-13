@@ -1,7 +1,7 @@
 public class Cave {
     private String description;
     
-    public Dragon(String d) {
+    public Cave(String d) {
         this.setDescription(d);
     }
     
