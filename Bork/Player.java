@@ -20,10 +20,20 @@ public class Player {
     }
 
     public int getHealth() {
-        return health;
+        if (health < 0) {
+            return 0;
+        }
+        else {
+            return health;
+        }
     }
 
     public int getScore() {
-        return score;
+        if (score < 0) {
+           return 0;   
+        }
+        else {
+           return score;   
+        }
     }
 }
