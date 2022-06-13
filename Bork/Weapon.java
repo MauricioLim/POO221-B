@@ -45,10 +45,10 @@ public class Weapon {
             return 0;
         }
         else {
-            if (this.getName().equals("axe") {
+            if (this.getName().equals("axe")) {
                 return 4;
             }
-            else if (this.getName().equals("fists") {
+            else if (this.getName().equals("fists")) {
                 return 10;
             }            
             else {
@@ -101,7 +101,7 @@ public class Weapon {
             }
         }
         else {
-            if (this.getChance() != 4) {
+            if (chance != 4) {
                 return true;
             }
             else {

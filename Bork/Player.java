@@ -1,5 +1,5 @@
 /*
-arrumar construtor, para construtor padrão
+arrumar construtor, para construtor padrão (não é possível)
 */
 
 public class Player {

@@ -11,10 +11,9 @@ public class Bork {
 
         Player p = new Player(20, 0);
         Weapon w = new Weapon(false);
-        Dragon d = new Dragon(5, 15);
+        Dragon d = new Dragon();
         House h = new House(true, false, false, false);
         Cave c = new Cave();
-        Instructions i = new Instructions();
 
         System.out.println("Seja bem-vindo ao Bork! Digite 'i' para visualizar as instrucoes, ou qualquer coisa para comecar o jogo.");
 
@@ -32,6 +31,8 @@ public class Bork {
             System.out.println("===================================");
             System.out.println("atacar      dragao");
             System.out.println("usar        pocao");
+            System.out.println("mostrar     vida");
+            System.out.println("atirar      pedra");
             System.out.println("-----------------------------------");
             System.out.println("DIGITE QUALQUER COISA PARA SAIR");
             s.next();
@@ -65,7 +66,7 @@ public class Bork {
                     else {
                         p.setScore(p.getScore() + 10);
                         System.out.println("Voce agora tem um machado.");
-			w.setName("axe");
+			            w.setName("axe");
                         w.setEquipped(true);
                     } 
                     break;
@@ -142,29 +143,35 @@ public class Bork {
                 case "atacar":
                 switch (object) {
                     case "dragao":
-                    if (w.isCritic()) {
+                    switch (w.getDamage()) {
+                        case 10:
+                        d.setHealth(d.getHealth() - w.getDamage());
+                        p.setScore(p.getScore() + 100);
+                        System.out.println("Golpe fatal! Voce esmurra a fera, tirando-lhe 10 pontos de vida.");
+                        break;
+                        case 5:
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 50);
-                        System.out.println("Acerto critico! Voce desfere um golpe fatal. Atarantado, o dragao perde 5 pontos de vida.");
-                        System.out.println("SUA VIDA: " + p.getHealth());
-			System.out.println("VIDA DO DRAGAO: " + d.getHealth());                    
-                    }
-                    else if (w.isMiss()) {
-                        p.setHealth(p.getHealth() - d.getDamage());
-                        p.setScore(p.getScore() - 50);
-                        System.out.println("Errou! Seu golpe passa a centimetros do dragao. Ileso, ele revida cospindo fogo, tirando 5 dos seus pontos de vida.");
-                        System.out.println("SUA VIDA: " + p.getHealth());
-			System.out.println("VIDA DO DRAGAO: " + d.getHealth());                     
-                    }
-                    else {
+                        System.out.println("Acerto critico! Voce desfere um grande golpe. Atarantado, o dragao perde 5 pontos de vida.");
+                        break;
+                        case 4:
+                        p.setHealth(p.getHealth() - d.getDamage()); 
+                        d.setHealth(d.getHealth() - w.getDamage());
+                        p.setScore(p.getScore() + 40);
+                        System.out.println("Sucesso! Voce acerta o pescoco da fera, fazendo 4 pontos de dano.");
+                        break;
+                        case 3:
                         p.setHealth(p.getHealth() - d.getDamage()); 
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 30);
-                        System.out.println("Sucesso! Voce acerta o pescoco da fera, causando 3 pontos de dano.");
-                        System.out.println("SUA VIDA: " + p.getHealth());
-			System.out.println("VIDA DO DRAGAO: " + d.getHealth());
-                    }  
-                    break; 
+                        System.out.println("Sucesso! Voce acerta o pescoco da fera, fazendo 3 pontos de dano.");
+                        break;
+                        case 0:
+                        p.setHealth(p.getHealth() - d.getDamage());
+                        p.setScore(p.getScore() - 50);
+                        System.out.println("Errou! Seu golpe passa a centimetros do dragao. Ileso, fazendo 5 pontos de dano");
+                        break;
+                    }
                 }
                 case "usar":
                 switch (object) {
@@ -185,7 +192,19 @@ public class Bork {
                         System.out.println("Voce nao tem nenhuma pocao.");
                     }
                     break;
-                }                             
+                } 
+                case "mostrar":
+                switch (object) {
+                    case "vida":
+                    System.out.println("SUA VIDA: " + p.getHealth());
+                    System.out.println("VIDA DO DRAGAO: " + d.getHealth());
+                } 
+                case "atirar":
+                switch (object) {
+                    case "pedra":
+                    d.setHealth(d.getHealth() - 1);
+                    System.out.println("Voce pega uma pedrinha do chao e a atira na fera, fazendo 1 misero ponto de dano. Patetico.");
+                }                           
             }
         }
 

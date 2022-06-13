@@ -1,23 +1,18 @@
 /*
 metodo falas do dragão
-arrumar construtor, deixar valores default.
+arrumar construtor, deixar valores default. (OK)
 */
 
 public class Dragon {
     private int damage;
     private int health;
 
-    public Dragon(int d, int h) {
-        this.setDamage(d);
-        this.setHealth(h);
-    }
-
     public void setDamage(int d) {
-        this.damage = d;
+        this.damage = 5;
     }
 
     public void setHealth(int h) {
-        this.health = h;
+        this.health = 15;
     }
 
     public int getDamage() {
@@ -29,7 +24,7 @@ public class Dragon {
             return 0;   
         }
         else {
-            return health
+            return health;
         }
     }
 }
