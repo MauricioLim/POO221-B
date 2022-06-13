@@ -66,7 +66,7 @@ public class Bork {
                     else {
                         p.setScore(p.getScore() + 10);
                         System.out.println("Voce agora tem um machado.");
-			            w.setName("axe");
+			w.setName("axe");
                         w.setEquipped(true);
                     } 
                     break;
