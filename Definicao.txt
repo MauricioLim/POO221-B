@@ -6,7 +6,7 @@ Definição:
 	•Pontuação:A pontuação é ganha na interação com o cenario
 		  , ao completar alguns landmarks, dar dano e matar inimigos.
 	•Recompensas:
-		♦Pugilista : matar dragão no murro.
+		♦Dwayne 'The Bork' Johnson : matar dragão no murro.
 		♦Detetive : achar o easter egg escondido.
 		♦Intocado : matar o dragão sem levar dano.
-		♦BFF : tornar-se amigo do dragão.
+		♦Best Friends Forever : tornar-se amigo do dragão.
