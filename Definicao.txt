@@ -9,3 +9,4 @@ Definição:
 		♦Pugilista : matar dragão no murro.
 		♦Detetive : achar o easter egg escondido.
 		♦Intocado : matar o dragão sem levar dano.
+		♦BFF : tornar-se amigo do dragão.
