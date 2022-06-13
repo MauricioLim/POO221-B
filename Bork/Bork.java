@@ -145,14 +145,14 @@ public class Bork {
                     if (w.isCritic()) {
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 50);
-                        System.out.println("Acerto critico! Com toda a sua forca, voce desfere um golpe fatal. Atarantado, o dragao perde 5 pontos de vida.");
+                        System.out.println("Acerto critico! Voce desfere um golpe fatal. Atarantado, o dragao perde 5 pontos de vida.");
                         System.out.println("SUA VIDA: " + p.getHealth());
 			System.out.println("VIDA DO DRAGAO: " + d.getHealth());                    
                     }
                     else if (w.isMiss()) {
                         p.setHealth(p.getHealth() - d.getDamage());
                         p.setScore(p.getScore() - 50);
-                        System.out.println("Errou! Sua arma passa a centimetros do dragao. Ileso, ele cospe fogo, tirando 5 dos seus pontos de vida.");
+                        System.out.println("Errou! Seu golpe passa a centimetros do dragao. Ileso, ele revida cospindo fogo, tirando 5 dos seus pontos de vida.");
                         System.out.println("SUA VIDA: " + p.getHealth());
 			System.out.println("VIDA DO DRAGAO: " + d.getHealth());                     
                     }
@@ -160,7 +160,7 @@ public class Bork {
                         p.setHealth(p.getHealth() - d.getDamage()); 
                         d.setHealth(d.getHealth() - w.getDamage());
                         p.setScore(p.getScore() + 30);
-                        System.out.println("Voce e o dragao trocam golpes. Agitando sua arma, voce acerta o pescoco da fera, causando 3 pontos de dano. Ele, por sua vez, investe com a cauda, acertando voce bem no estomago, tirando-lhe 5 pontos de vida.");
+                        System.out.println("Sucesso! Voce acerta o pescoco da fera, causando 3 pontos de dano.");
                         System.out.println("SUA VIDA: " + p.getHealth());
 			System.out.println("VIDA DO DRAGAO: " + d.getHealth());
                     }  
