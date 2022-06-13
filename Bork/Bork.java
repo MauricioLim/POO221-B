@@ -14,6 +14,9 @@ public class Bork {
         Dragon d = new Dragon();
         House h = new House(true, false, false, false);
         Cave c = new Cave();
+	    
+	h.setDescription();
+        c.setDescription();
 
         System.out.println("Seja bem-vindo ao Bork! Digite 'i' para visualizar as instrucoes, ou qualquer coisa para comecar o jogo.");
 
