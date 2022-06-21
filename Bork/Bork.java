@@ -11,7 +11,7 @@ public class Bork {
 
         Player p = new Player(20, 0);
         Weapon w = new Weapon(false);
-        Dragon d = new Dragon(15);
+        Dragon d = new Dragon(15, 5);
         House h = new House("Voce esta na sala de estar. Ha uma espada pendurada na parede, e, encostado no sofa, um machado de ferro. Tambem ha um belo tapete no centro e uma mesa redonda com um pequeno frasco de vidro.", true, false, false, false);
         Cave c = new Cave("Descendo as escadas, voce chega a uma caverna subterranea. Nela ha um enorme dragao adormecido. Ele acorda com o barulho, e, vendo voce, prepara-se para desferir um golpe.");
 
