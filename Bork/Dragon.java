@@ -4,11 +4,12 @@ arrumar construtor, deixar valores default. (OK)
 */
 
 public class Dragon {
-    private int damage;
     private int health;
+    private int damage;
 
-    public Dragon(int h) {
+    public Dragon(int h, int d) {
         this.setHealth(h);
+        this.setDamage(d);
     }
 
     public void setDamage(int d) {
