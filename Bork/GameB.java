@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GameB {
 	 Scanner s = new Scanner(System.in);
 
-     Player p = new Player(20,0);
+     Player p = new Player();
      Weapon w = new Weapon(false);
      Dragon d = new Dragon();
      Room r = new Room(false, false, false, false,false);

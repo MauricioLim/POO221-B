@@ -28,39 +28,39 @@ public class Room {
     public void setBottleIsTaken(boolean bit) {
     	if(isIsAtTheHouse()) {
     		this.bottleIsTaken = bit;
-    	} // jogar excessao e dizer player q nao È possivel
+    	} // jogar excessao e dizer player q nao √© possivel
     }
     	
 
     public void setRugIsRemoved(boolean rir) {
     	if(isIsAtTheHouse()) {
     		this.rugIsRemoved = rir;
-    	} // jogar excessao e dizer player q nao È possivel
+    	} // jogar excessao e dizer player q nao √© possivel
     }
 
     public void setTrapdoorIsOpen(boolean tio) {
     	if(isIsAtTheHouse()) {
     		this.trapdoorIsOpen = tio;
-    	} // jogar excessao e dizer player q nao È possivel
+    	} // jogar excessao e dizer player q nao √© possivel
     }
     public void setFoodIsTaken(boolean fit){
         if(isIsAtTheHouse()){
             this.foodIsTaken = fit;
-        }// jogar excessao e dizer player q nao È possivel
+        }// jogar excessao e dizer player q nao √© possivel
     }
 
     public String getDescription() {
     	String desc = "?";
     	if (local == 'H') {
-    		desc = "A porta range e uma nuvem de poeira enche o local.  O chalÈ aparenta ter sido \n abandonado as presas,"
-    				+ "h· lenha cortada junto a um machado de ferro prÛximo a \n lareira e uma espada cintilante sobre a mesma."
-    				+ "A direita est· a uma pequena mesa \n com uma garrafa, cheira de um liquido prata em seu interior, "
-    				+ "junto com comida \n preparada para viagem. J· ao centro do velho chalÈ h· uma belo tapete com \no bras„o de sua famÌlia bem chamuscado.";
+    		desc = "A porta range e uma nuvem de poeira enche o local.  O chal√© aparenta ter sido \n abandonado as presas,"
+    				+ "h√° lenha cortada junto a um machado de ferro pr√≥ximo a \n lareira e uma espada cintilante sobre a mesma."
+    				+ "A direita est√° a uma pequena mesa \n com uma garrafa, cheira de um liquido prata em seu interior, "
+    				+ "junto com comida \n preparada para viagem. J√° ao centro do velho chal√© h√° uma belo tapete com \no bras√£o de sua fam√≠lia bem chamuscado.";
     	} else if(local == 'C') {
     		desc = "Descendo as escadas o som da madeira rangendo vai sendo substituido pelo eco \ndos seus passos sobre a pedra fria."
-    				+ "O corredor segue atÈ uma sala muito bem \niluminada com o brilho do ouro e prata. "
-    				+ "Ao se aproximar da sala vocÍ vÍ um grande \ndrag„o vermelho brincando empilhando pedras em formato de lanÁa.\n"
-    				+ "Percebendo sua presenÁa ele se prepara para batalha!!";
+    				+ "O corredor segue at√© uma sala muito bem \niluminada com o brilho do ouro e prata. "
+    				+ "Ao se aproximar da sala voc√™ v√™ um grande \ndrag√£o vermelho brincando empilhando pedras em formato de lan√ßa.\n"
+    				+ "Percebendo sua presen√ßa ele se prepara para batalha!!";
     	}
         return desc;
     }
