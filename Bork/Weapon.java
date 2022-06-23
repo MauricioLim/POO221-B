@@ -70,17 +70,13 @@ public class Weapon {
                 return false;
             }
         }
-        else if (this.getName().equals("axe")) {
+        else {
             if (chance == 4) {
                 return true;
             }
             else {
                 return false;
             }
-        }
-        else {
-            return false;
-        }
     }
 
     public boolean isMiss(int chance) {
