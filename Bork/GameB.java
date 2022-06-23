@@ -34,7 +34,7 @@ public class GameB {
             test += "===================================\n";
             test += "atacar      	obj.\n";
             test += "usar        	obj.\n";
-            test += "mostrar     	VIDA\n";
+            test += "mostrar     	vida\n";
             test += "atirar      	obj.\n";
             test += "-----------------------------------\n";
     		return test;
