@@ -6,9 +6,9 @@ public class Player {
     private int health;
     private int score;
 
-    public Player(int h, int s) {
-        this.setHealth(h);
-        this.setScore(s);
+    public Player() {
+        this.setHealth(20);
+        this.setScore(0);
     }
 
     public void setHealth(int h) {
