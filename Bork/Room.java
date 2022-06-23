@@ -1,17 +1,17 @@
 public class Room {
-	private char local = 'H';
+    private char local = 'H';
     private boolean isAtTheHouse;
     private boolean rugIsRemoved;
     private boolean trapdoorIsOpen;
     private boolean bottleIsTaken;
     private boolean foodIsTaken;
 
-    public Room(boolean iath, boolean bit , boolean rir, boolean tio, boolean fit) {
-        this.setIsAtTheHouse(iath);
-        this.setBottleIsTaken(bit);
-        this.setRugIsRemoved(rir); 
-        this.setTrapdoorIsOpen(tio);
-        this.setFoodIsTaken(fit);
+    public Room() {
+        this.setIsAtTheHouse(true);
+        this.setBottleIsTaken(false);
+        this.setRugIsRemoved(false); 
+        this.setTrapdoorIsOpen(false);
+        this.setFoodIsTaken(false);
     }
     
     public char getLocal() {
@@ -52,15 +52,15 @@ public class Room {
     public String getDescription() {
     	String desc = "?";
     	if (local == 'H') {
-    		desc = "A porta range e uma nuvem de poeira enche o local.  O chalé aparenta ter sido \n abandonado as presas,"
-    				+ "há lenha cortada junto a um machado de ferro próximo a \n lareira e uma espada cintilante sobre a mesma."
-    				+ "A direita está a uma pequena mesa \n com uma garrafa, cheira de um liquido prata em seu interior, "
-    				+ "junto com comida \n preparada para viagem. Já ao centro do velho chalé há uma belo tapete com \no brasão de sua família bem chamuscado.";
+    		desc = "A porta range e uma nuvem de poeira enche o ar.  O chale aparenta ter sido \n abandonado as pressas."
+    				+ "Ha lenha cortada junto a um machado de ferro proximo à \n lareira, e uma espada rutilante sobre ela."
+    				+ "A direita esta uma pequena mesa \n com um frasco, cheio de um liquido prateado, "
+    				+ "junto de comida \n preparada para viagem. No centro do velho chala ha uma belo tapete com \no brasao de sua familia um tanto chamuscado.";
     	} else if(local == 'C') {
-    		desc = "Descendo as escadas o som da madeira rangendo vai sendo substituido pelo eco \ndos seus passos sobre a pedra fria."
-    				+ "O corredor segue até uma sala muito bem \niluminada com o brilho do ouro e prata. "
-    				+ "Ao se aproximar da sala você vê um grande \ndragão vermelho brincando empilhando pedras em formato de lança.\n"
-    				+ "Percebendo sua presença ele se prepara para batalha!!";
+    		desc = "Descendo as escadas, o som da madeira rangendo vai se trocando pelo eco \ndos seus passos sobre a pedra fria."
+    				+ "O corredor segue ate uma sala bem \niluminada pelo brilho de ouro e prata. "
+    				+ "Ao se aproximar da sala voce ve um grande \ndragao vermelho brincando e empilhando pedras em formato de lanca.\n"
+    				+ "Percebendo sua presenca, ele se prepara para batalha!";
     	}
         return desc;
     }
