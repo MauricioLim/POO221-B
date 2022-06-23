@@ -40,9 +40,9 @@ public class GameB {
             test += "-----------------------------------\n";
     		return test;
     	} else {
-    		test += "Ao fim de um longa jornada, Bork um experiente aventureiro, finalmente chega\npróximo ao seu objetivo!";
-    		test +=	"\nSeguindo os rastros de seu pai a procura de seu paradeiro.";
-    		test +=	"\nSubindo a montanha da prata Bork chega em frente a um velho chalé abandonado...";
+    		test += "Ao final de um longa jornada, Bork, um aventureiro experiente, finalmente chega\nperto do seu objetivo!";
+    		test +=	"\nSeguindo os rastros de seu pai, ele procura por seu paradeiro.";
+    		test +=	"\nSubindo a Montanha da Prata, Bork chega em frente a um velho chale abandonado...";
     		return test;
     	}
     }
@@ -59,7 +59,7 @@ public class GameB {
         		switch(object) {
         			case "chale":
         				if(r.isIsAtTheHouse()) {
-            				resposta = "Você ja esta dentro da chale";
+            				resposta = "Voce ja esta no chale.";
             				break;
             			} else {
             				r.setLocal('H');
@@ -81,7 +81,7 @@ public class GameB {
                 			p.setScore(p.getScore() + 10);
                 			w.setName("sword");
                 			w.setEquipped(true);
-                			resposta += "Voce agora tem uma espada";
+                			resposta += "Voce agora tem uma espada.";
                 		} 
                 		break;
                 	case "machado":
@@ -110,11 +110,11 @@ public class GameB {
 						}
 						else {
 							r.setFoodIsTaken(true);
-							resposta += "Você pega a comida para viagem, o maior inimigo sempre será a fome.";
+							resposta += "Voce pega a comida para viagem. O maior inimigo sempre sera a fome!";
 						}
 						break;
 					default:
-						resposta += "Opção Invalida";
+						resposta += "Opcao invalida!";
             	}
             	break;
             case "mover":
@@ -130,14 +130,14 @@ public class GameB {
                 		}
                 		break;
 					default:
-						resposta += "Opção Invalida";
+						resposta += "Opcao invalida!";
             	}
             	break;
             case "abrir":
             	switch (object) {
                 	case "escotilha":
                 		if (r.isTrapdoorIsOpen()) {
-                			resposta += "A escotilha já está aberta.";
+                			resposta += "A escotilha ja esta aberta.";
                 		}
                 		else if (r.isRugIsRemoved()) {
                 			p.setScore(p.getScore() + 10);
@@ -146,7 +146,7 @@ public class GameB {
                 		}                  
                 		break; 
 					default:
-						resposta += "Opção Invalida";
+						resposta += "Opcao invalida!";
             	}
             	break;
             case "descer":
@@ -162,14 +162,14 @@ public class GameB {
             				else {
             					w.setName("fists");
             					r.setIsAtTheHouse(false);
-            					resposta +=  "Você desce as escada com punhos cerrilhados, eles e sua coragem seram \nsua única arma.\n";
+            					resposta +=  "Voce desce as escadas com os punhos cerrilhados. Eles e sua coragem serao \nsua unica arma...\n";
             					r.setLocal('C');
             					resposta += "\n" +r.getDescription();
             				}                        
             			}
             			break;
 					default:
-						resposta += "Opção Invalida";
+						resposta += "Opcao invalida!";
             	}
             	break;
             default: 
@@ -240,7 +240,7 @@ public class GameB {
                 			resposta += "SUA VIDA: " + p.getHealth();
                 			resposta += "\nVIDA DO DRAGAO: " + d.getHealth();
 						default:
-							resposta += "Opção Invalida";
+							resposta += "Opcao invalida!";
             		} 
             	case "atirar":
             		switch (object) {
@@ -248,10 +248,10 @@ public class GameB {
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
 						case "comida":
-							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu tava \ncom muita fome desde que o Senhor Bork sumiu... sinto sua falta...\n";
+							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu tava \ncom muita fome desde que o senhor Bork sumiu... sinto sua falta...\n";
 
 						default:
-							resposta += "Opção Invalida";
+							resposta += "Opcao invalida!";
             		}                           
         	}
        }
