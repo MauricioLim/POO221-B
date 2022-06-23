@@ -247,7 +247,7 @@ public class GameB {
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
 						case "comida":
-							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o senhor Bork sumiu... sinto sua falta...\n";
+							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o Sr. Bork sumiu... sinto sua falta...\n";
 
 						default:
 							resposta += "Opcao invalida!";
