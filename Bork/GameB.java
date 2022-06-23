@@ -6,37 +6,36 @@ aderir classe acao
 import java.util.Scanner;
 
 public class GameB {
-	 Scanner s = new Scanner(System.in);
+    Scanner s = new Scanner(System.in);
 
-     Player p = new Player();
-     Weapon w = new Weapon(false);
-     Dragon d = new Dragon();
-     Room r = new Room(false, false, false, false,false);
+    Player p = new Player();
+    Weapon w = new Weapon();
+    Dragon d = new Dragon();
+    Room r = new Room();
      
-    public GameB(){
+    public GameB() {
 
     }
-    
-    
+        
     public String info(String info) {
     	String test ="";
     	
     	if(info.equals("info")) { 
-    		test = "Acao:   +     Objeto(s): \n";
+    	    test = " Acao:   +	        Objeto(s): \n";
             test += "===================================\n";
             test += "CENARIO: CASA\n";
             test += "===================================\n";
-            test += "pegar        obj.\n";
-            test += "mover        obj.\n";
-            test += "abrir        obj.\n";
-            test += "descer       obj.\n";
+            test += "pegar        	obj.\n";
+            test += "mover        	obj.\n";
+            test += "abrir        	obj.\n";
+            test += "descer       	obj.\n";
             test += "===================================\n";
             test += "CENARIO: CAVERNA\n";
             test += "===================================\n";
-            test += "atacar      obj.\n";
-            test += "usar        obj.\n";
-            test += "mostrar     obj.\n";
-            test += "atirar      obj.\n";
+            test += "atacar      	obj.\n";
+            test += "usar        	obj.\n";
+            test += "mostrar     	obj.\n";
+            test += "atirar      	obj.\n";
             test += "-----------------------------------\n";
     		return test;
     	} else {
@@ -248,7 +247,7 @@ public class GameB {
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
 						case "comida":
-							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu tava \ncom muita fome desde que o senhor Bork sumiu... sinto sua falta...\n";
+							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o senhor Bork sumiu... sinto sua falta...\n";
 
 						default:
 							resposta += "Opcao invalida!";
