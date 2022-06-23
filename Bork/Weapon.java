@@ -16,8 +16,8 @@ public class Weapon {
 
     Random r = new Random();
 
-    public Weapon(boolean e) {
-        this.setEquipped(e);
+    public Weapon() {
+        this.setEquipped(false);
     }
 
     public void setName(String n) {
