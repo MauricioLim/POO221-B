@@ -178,7 +178,7 @@ public class GameB {
             	}
             	break;
             default: 
-            	resposta +=  "Opção Invalida";
+            	resposta +=  "Opcao invalida!";
             	break;
         	}
     	
@@ -216,7 +216,7 @@ public class GameB {
             				}
 					break;
 						default:
-							resposta += "Opção Invalida";
+							resposta += "Opcao invalida!";
 							break;
             		}
 			break;
@@ -240,7 +240,7 @@ public class GameB {
             				}
             				break;
 						default:
-							resposta += "Opção Invalida";
+							resposta += "Opcao invalida!";
 							break;
             		} 
 			break;
