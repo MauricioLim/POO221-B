@@ -46,25 +46,26 @@ public class GameB {
     	}
     }
 
-   public String acoes(String test) {
-	   String[] testSplit = test.split(" ");
-	   String action = testSplit[0];
-	   String object = testSplit[1];
-	   String resposta = r.getDescription() + "\n\n";
+    public String acoes(String test) {
+	String[] testSplit = test.split(" ");
+	String action = testSplit[0];
+	String object = testSplit[1];
+	String resposta = r.getDescription() + "\n\n";
     
         if(r.getLocal() == 'H') {
         	switch (action) {
-        	case "entrar":
+        		case "entrar":
         		switch(object) {
         			case "chale":
         				if(r.isIsAtTheHouse()) {
             				resposta = "Voce ja esta no chale.";
             				break;
-            			} else {
-            				r.setLocal('H');
-            				resposta = r.getDescription();
-            				r.setIsAtTheHouse(true);
-            			}
+            				} 
+					else {
+            					r.setLocal('H');
+            					resposta = r.getDescription();
+            					r.setIsAtTheHouse(true);
+            				}
         				break;
         		}
         		break;
