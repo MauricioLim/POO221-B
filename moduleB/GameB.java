@@ -3,6 +3,8 @@ arrumar compatibilidade com outras classes
 aderir classe acao
 */
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameB {
@@ -21,7 +23,7 @@ public class GameB {
     	String test ="";
     	
     	if(info.equals("info")) { 
-    	    test = " Acao:   	        Objeto(s): \n";
+    	    test = " Acao:   +	        Objeto(s): \n";
             test += "===================================\n";
             test += "CENARIO: CASA\n";
             test += "===================================\n";
@@ -65,6 +67,7 @@ public class GameB {
             					r.setLocal('H');
             					resposta = r.getDescription();
             					r.setIsAtTheHouse(true);
+            					p.setScore(p.getScore() + 10);
             				}
         				break;
         		}
@@ -78,7 +81,7 @@ public class GameB {
                 			break;
                 		}  
                 		else {
-                			p.setScore(p.getScore() + 10);
+                			p.setScore(p.getScore() + 30);
                 			w.setName("sword");
                 			w.setEquipped(true);
                 			resposta += "Voce agora tem uma espada.";
@@ -86,10 +89,10 @@ public class GameB {
                 		break;
                 	case "machado":
                 		if (w.isEquipped()) {
-                			resposta += "Voce ja tem uma arma.";                       
+                			resposta += "Voce ja tem uma arma.";    
                 		}  
                 		else {
-                			p.setScore(p.getScore() + 10);
+                			p.setScore(p.getScore() + 30);
                 			w.setName("axe");
                 			w.setEquipped(true);
                 			resposta += "Voce agora tem um machado.";
@@ -102,6 +105,7 @@ public class GameB {
                 		else {
                 			r.setBottleIsTaken(true);
                 			resposta += "Voce pega o frasco. Ele contem um liquido, que e uma pocao de cura.";
+                			p.setScore(p.getScore() + 30);
                 		}
                 		break;
 					case "comida":
@@ -111,11 +115,11 @@ public class GameB {
 						else {
 							r.setFoodIsTaken(true);
 							resposta += "Voce pega a comida para viagem. O maior inimigo sempre sera a fome!";
+							p.setScore(p.getScore() + 30);
 						}
 						break;
 					default:
 						resposta += "Opcao invalida!";
-						break;
             	}
             	break;
             case "mover":
@@ -125,14 +129,13 @@ public class GameB {
                 			resposta += "O tapete ja foi movido.";
                 		}
                 		else {
-                			p.setScore(p.getScore() + 10);
+                			p.setScore(p.getScore() + 40);
                 			r.setRugIsRemoved(true);
                 			resposta += "Voce remove o tapete, revelando no piso uma pequena escotilha de madeira.";
                 		}
                 		break;
 					default:
 						resposta += "Opcao invalida!";
-						break;
             	}
             	break;
             case "abrir":
@@ -142,23 +145,21 @@ public class GameB {
                 			resposta += "A escotilha ja esta aberta.";
                 		}
                 		else if (r.isRugIsRemoved()) {
-                			p.setScore(p.getScore() + 10);
+                			p.setScore(p.getScore() + 40);
                 			r.setTrapdoorIsOpen(true);
                 			resposta += "Voce abre a escotilha. Embaixo esta uma longa escada, que desce ate a escuridao.";                    
                 		}                  
                 		break; 
 					default:
 						resposta += "Opcao invalida!";
-						break;
             	}
-		break;
             	break;
             case "descer":
             	switch (object) {
             		case "escada":
             			if (r.isTrapdoorIsOpen()) {
             				if (w.isEquipped()) {
-            					p.setScore(p.getScore() + 10);
+            					p.setScore(p.getScore() + 50);
             					r.setIsAtTheHouse(false);
 								r.setLocal('C');
 								resposta += "\n" +r.getDescription();
@@ -167,6 +168,7 @@ public class GameB {
             					w.setName("fists");
             					r.setIsAtTheHouse(false);
             					resposta +=  "Voce desce as escadas com os punhos cerrilhados. Eles e sua coragem serao \nsua unica arma...\n";
+            					p.setScore(p.getScore() + 40);
             					r.setLocal('C');
             					resposta += "\n" +r.getDescription();
             				}                        
@@ -174,11 +176,10 @@ public class GameB {
             			break;
 					default:
 						resposta += "Opcao invalida!";
-						break;
             	}
             	break;
             default: 
-            	resposta +=  "Opcao invalida!";
+            	resposta +=  "Opção Invalida";
             	break;
         	}
     	
@@ -192,21 +193,33 @@ public class GameB {
             						d.setHealth(d.getHealth() - w.getDamage());
             						p.setScore(p.getScore() + 100);
             						resposta += "Golpe fatal! Voce esmurra a fera, \ntirando-lhe 10 pontos de vida.";
+            						if(d.getHealth() <= 0) {
+                        				p.setScore(p.getScore() + 350);
+                        			}
             						break;
             					case 5:
             						d.setHealth(d.getHealth() - w.getDamage());
             						p.setScore(p.getScore() + 50);
             						resposta += "Acerto critico! Voce desfere um grande golpe; \natarantado, o dragao perde 5 pontos de vida.";
+            						if(d.getHealth() <= 0) {
+                        				p.setScore(p.getScore() + 350);
+                        			}
             						break;
             					case 4:
             						d.setHealth(d.getHealth() - w.getDamage());
             						p.setScore(p.getScore() + 40);
             						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 4 pontos de dano.";
+            						if(d.getHealth() <= 0) {
+                        				p.setScore(p.getScore() + 350);
+                        			}
             						break;
             					case 3:
             						d.setHealth(d.getHealth() - w.getDamage());
             						p.setScore(p.getScore() + 30);
             						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 3 pontos de dano.";
+            						if(d.getHealth() <= 0) {
+                        				p.setScore(p.getScore() + 350);
+                        			}
             						break;
             					case 0:
             						p.setHealth(p.getHealth() - d.getDamage());
@@ -214,12 +227,9 @@ public class GameB {
             						resposta += "Errou! Seu golpe passa a centimetros do dragao. \nIleso, ele revida, fazendo 5 pontos de dano";
             						break;
             				}
-					break;
 						default:
-							resposta += "Opcao invalida!";
-							break;
+							resposta += "Opção Invalida";	
             		}
-			break;
             	case "usar":
             		switch (object) {
             			case "pocao":
@@ -229,7 +239,7 @@ public class GameB {
             					}
             					else {
             						p.setHealth(p.getHealth() + 4);
-            						p.setScore(p.getScore() + 20);
+            						p.setScore(p.getScore() + 30);
             						resposta += "Voce bebe a pocao de cura, recuperando 4 pontos de vida.";
             						resposta += "SUA VIDA: " + p.getHealth();
             						r.setBottleIsTaken(false);
@@ -240,36 +250,41 @@ public class GameB {
             				}
             				break;
 						default:
-							resposta += "Opcao invalida!";
-							break;
+							resposta += "Opção Invalida";
             		} 
-			break;
             	case "mostrar":
             		switch (object) {
                 		case "vida":
                 			resposta += "SUA VIDA: " + p.getHealth();
                 			resposta += "\nVIDA DO DRAGAO: " + d.getHealth();
-					break;
+                			p.setScore(p.getScore() + 10);
 						default:
 							resposta += "Opcao invalida!";
-							break;
             		} 
-			break;
             	case "atirar":
             		switch (object) {
                 		case "pedra":
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
-					break;
+                			if(d.getHealth() <= 0) {
+                				p.setScore(p.getScore() + 400);
+                			}
 						case "comida":
 							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o Sr. Bork sumiu... sinto sua falta...\n";
-							break;
+							p.setScore(p.getScore() + 350);
+
 						default:
 							resposta += "Opcao invalida!";
-							break;
             		}                           
         	}
        }
         return resposta;
    }
+    
+    public void save() throws IOException {
+    	FileWriter fw = new FileWriter("dataPlayer.txt");
+    	fw.write("Score: " + p.getScore());
+    	fw.close();
+    	
+    }
 }
