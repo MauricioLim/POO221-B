@@ -64,7 +64,12 @@ public class Apresentacao {
 			public void actionPerformed(ActionEvent e) {
 				test = tfAcoes.getText();
 				txtrAperteOBoto.setText(b.acoes(test));
-				
+				try {
+					b.save();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton_1.setBounds(303, 355, 108, 23);
