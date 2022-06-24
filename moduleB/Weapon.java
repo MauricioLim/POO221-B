@@ -77,6 +77,7 @@ public class Weapon {
             else {
                 return false;
             }
+        }
     }
 
     public boolean isMiss(int chance) {
