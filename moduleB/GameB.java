@@ -21,7 +21,7 @@ public class GameB {
     	String test ="";
     	
     	if(info.equals("info")) { 
-    	    test = " Acao:   +	        Objeto(s): \n";
+    	    test = " Acao:   	        Objeto(s): \n";
             test += "===================================\n";
             test += "CENARIO: CASA\n";
             test += "===================================\n";
@@ -115,6 +115,7 @@ public class GameB {
 						break;
 					default:
 						resposta += "Opcao invalida!";
+						break;
             	}
             	break;
             case "mover":
@@ -131,6 +132,7 @@ public class GameB {
                 		break;
 					default:
 						resposta += "Opcao invalida!";
+						break;
             	}
             	break;
             case "abrir":
@@ -147,7 +149,9 @@ public class GameB {
                 		break; 
 					default:
 						resposta += "Opcao invalida!";
+						break;
             	}
+		break;
             	break;
             case "descer":
             	switch (object) {
@@ -170,6 +174,7 @@ public class GameB {
             			break;
 					default:
 						resposta += "Opcao invalida!";
+						break;
             	}
             	break;
             default: 
@@ -209,9 +214,12 @@ public class GameB {
             						resposta += "Errou! Seu golpe passa a centimetros do dragao. \nIleso, ele revida, fazendo 5 pontos de dano";
             						break;
             				}
+					break;
 						default:
-							resposta += "Opção Invalida";	
+							resposta += "Opção Invalida";
+							break;
             		}
+			break;
             	case "usar":
             		switch (object) {
             			case "pocao":
@@ -233,25 +241,32 @@ public class GameB {
             				break;
 						default:
 							resposta += "Opção Invalida";
+							break;
             		} 
+			break;
             	case "mostrar":
             		switch (object) {
                 		case "vida":
                 			resposta += "SUA VIDA: " + p.getHealth();
                 			resposta += "\nVIDA DO DRAGAO: " + d.getHealth();
+					break;
 						default:
 							resposta += "Opcao invalida!";
+							break;
             		} 
+			break;
             	case "atirar":
             		switch (object) {
                 		case "pedra":
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
+					break;
 						case "comida":
 							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o Sr. Bork sumiu... sinto sua falta...\n";
-
+							break;
 						default:
 							resposta += "Opcao invalida!";
+							break;
             		}                           
         	}
        }
