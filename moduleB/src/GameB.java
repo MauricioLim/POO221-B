@@ -1,6 +1,4 @@
-import java.awt.Panel;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -10,10 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JFrame;
 
 public class GameB {
-    private static final Panel Panel = null;
     private int vezesAcionado;
+    private Presentation tela;
 
 	Scanner s = new Scanner(System.in);
 
@@ -397,9 +396,10 @@ public class GameB {
     public String getDescription() {
     	return "Um jogo estilo rpg o qual o jogador escolhe e realiza suas ações com caixas texto, o limite é a imaginação.";
     }
-    //todo
-    public Panel getPanel() {
-    	return Panel;
+    public JFrame getPanel() {
+    	tela = new Presentation();
+    	tela.frame.setVisible(true);
+    	return tela.returnPane();
     }
     
 }
