@@ -11,10 +11,6 @@ public class Bork {
         this.health = h;
     }
 
-    public void setScore(int s) {
-        this.score = s;
-    }
-
     public int getHealth() {
         if (health < 0) {
             return 0;
@@ -24,12 +20,4 @@ public class Bork {
         }
     }
 
-    public int getScore() {
-        if (score < 0) {
-           return 0;   
-        }
-        else {
-           return score;   
-        }
-    }
 }
