@@ -380,9 +380,8 @@ public class GameB {
     	return listP.size();
     }
 
-    public Player getWorstPlayer() {
+        public Player getWorstPlayer() {
     	ArrayList<Player> listP = new ArrayList<>();
-    	int worstP = Integer.MAX_VALUE;
 		Player wp = null;
     	try {
     		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("dataPlayer.bin"))) {
@@ -396,8 +395,7 @@ public class GameB {
     		}
     	for(Player p: listP) {
     		
-    		if(p.getPontuacao() < worstP) {
-    			worstP = p.getPontuacao();
+    		if(wp.compareTo(p) > 0 || wp == null) {
     			wp = p;
     		}
     	}
@@ -407,7 +405,6 @@ public class GameB {
 
     public Player getBestPlayer() {
     	ArrayList<Player> listP = new ArrayList<>();
-    	int bestP = 0;
 		Player bp = null;
     	try {
     		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("dataPlayer.bin"))) {
@@ -421,20 +418,18 @@ public class GameB {
     		}
     	for(Player p: listP) {
     		
-    		if(p.getPontuacao() > bestP) {
-    			bestP = p.getPontuacao();
+    		if(bp.compareTo(p) < 0 || wp == null) {
     			bp = p;
     		}
     	}
     	return bp;
     }
-
     public int getWorstPlayerPoints() {
-    	return getWorstPlayer().getPontuacao();
+    	return getWorstPlayer().getPoints();
     }
 
     public int getBestPlayerPoints() {
-    	return getBestPlayer().getPontuacao();
+    	return getBestPlayer().getPoints();
     }
     
     public String getName() {
