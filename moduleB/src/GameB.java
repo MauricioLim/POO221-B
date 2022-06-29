@@ -74,7 +74,7 @@ public class GameB {
             					r.setLocal('H');
             					resposta = r.getDescription();
             					r.setIsAtTheHouse(true);
-            					b.setScore(b.getScore() + 10);
+            					p.sumPoint(10);
             				}
         				break;
         		}
@@ -84,11 +84,11 @@ public class GameB {
             	switch (object) {
                 	case "espada":
                 		if (w.isEquipped()) {
-                			resposta += "Voce ja tem uma arma.";
+                			resposta += "Voce já tem uma arma.";
                 			break;
                 		}  
                 		else {
-                			b.setScore(b.getScore() + 30);
+                			p.sumPoint(30);
                 			w.setName("sword");
                 			w.setEquipped(true);
                 			resposta += "Voce agora tem uma espada.";
@@ -96,33 +96,33 @@ public class GameB {
                 		break;
                 	case "machado":
                 		if (w.isEquipped()) {
-                			resposta += "Voce ja tem uma arma.";    
+                			resposta += "Voce já tem uma arma.";    
                 		}  
                 		else {
-                			b.setScore(b.getScore() + 30);
+                			p.sumPoint(30);
                 			w.setName("axe");
                 			w.setEquipped(true);
                 			resposta += "Voce agora tem um machado.";
                 		} 
                 		break;
-                	case "frasco":
+                	case "garrafa":
                 		if (r.isBottleIsTaken()){
-                			resposta += "Voce ja pegou o frasco.";
+                			resposta += "Voce já pegou a garrafa.";
                 		}
                 		else {
                 			r.setBottleIsTaken(true);
-                			resposta += "Voce pega o frasco. Ele contem um liquido, que e uma pocao de cura.";
-                			b.setScore(b.getScore() + 30);
+                			resposta += "Voce pega a garrafa. Ele contem um líquido, que é uma pocao de cura.";
+                			p.sumPoint(30);
                 		}
                 		break;
 					case "comida":
 						if (r.isFoofIsTaken()){
-							resposta += "Voce ja pegou a comida.";
+							resposta += "Voce já pegou a comida.";
 						}
 						else {
 							r.setFoodIsTaken(true);
 							resposta += "Voce pega a comida para viagem. O maior inimigo sempre sera a fome!";
-							b.setScore(b.getScore() + 30);
+							p.sumPoint(30);
 						}
 						break;
 					default:
@@ -136,7 +136,7 @@ public class GameB {
                 			resposta += "O tapete ja foi movido.";
                 		}
                 		else {
-                			b.setScore(b.getScore() + 40);
+                			p.sumPoint(40);
                 			r.setRugIsRemoved(true);
                 			resposta += "Voce remove o tapete, revelando no piso uma pequena escotilha de madeira.";
                 		}
@@ -152,7 +152,7 @@ public class GameB {
                 			resposta += "A escotilha ja esta aberta.";
                 		}
                 		else if (r.isRugIsRemoved()) {
-                			b.setScore(b.getScore() + 40);
+                			p.sumPoint(40);
                 			r.setTrapdoorIsOpen(true);
                 			resposta += "Voce abre a escotilha. Embaixo esta uma longa escada, que desce ate a escuridao.";                    
                 		}                  
@@ -166,7 +166,7 @@ public class GameB {
             		case "escada":
             			if (r.isTrapdoorIsOpen()) {
             				if (w.isEquipped()) {
-            					b.setScore(b.getScore() + 50);
+            					p.sumPoint(40);
             					r.setIsAtTheHouse(false);
 								r.setLocal('C');
 								resposta += "\n" +r.getDescription();
@@ -175,7 +175,7 @@ public class GameB {
             					w.setName("fists");
             					r.setIsAtTheHouse(false);
             					resposta +=  "Voce desce as escadas com os punhos cerrilhados. Eles e sua coragem serao \nsua unica arma...\n";
-            					b.setScore(b.getScore() + 40);
+            					p.sumPoint(40);
             					r.setLocal('C');
             					resposta += "\n" +r.getDescription();
             				}                        
@@ -198,40 +198,85 @@ public class GameB {
             				switch (w.getDamage()) {
             					case 10:
             						d.setHealth(d.getHealth() - w.getDamage());
-            						b.setScore(b.getScore() + 100);
-            						resposta += "Golpe fatal! Voce esmurra a fera, \ntirando-lhe 10 pontos de vida.";
+            						p.sumPoint(100);
+            						resposta += "Golpe fatal! Voce esmurra a fera, \ntirando-lhe 10 pontos de vida.\n";
+            						resposta += d.getDragonSpeech(w.getName());
             						if(d.getHealth() <= 0) {
-                        				b.setScore(b.getScore() + 350);
+            							if(w.getName.equals("fists")) {
+            								// get achievement the bork
+            								AchievemetC a = ("Dwayne 'The Bork' Johnson")
+            								p.addAchievement(a);
+            							}
+            							if(b.getHalth() == 20 && !(r.isBottleIsTaken())) {
+            								//get achievement intocado
+            								AchievemetC a = ("Intocado")
+                    						p.addAchievement(a);
+            							}
+            							p.sumPoint(350);
                         			}
             						break;
             					case 5:
             						d.setHealth(d.getHealth() - w.getDamage());
-            						b.setScore(b.getScore() + 50);
-            						resposta += "Acerto critico! Voce desfere um grande golpe; \natarantado, o dragao perde 5 pontos de vida.";
+            						p.sumPoint(50);
+            						resposta += "Acerto critico! Voce desfere um grande golpe; \natarantado, o dragao perde 5 pontos de vida.\n";
+            						resposta += d.getDragonSpeech(w.getName());
             						if(d.getHealth() <= 0) {
-                        				b.setScore(b.getScore() + 350);
+            							if(w.getName.equals("fists")) {
+            								// get achievement the bork
+            								AchievemetC a = ("Dwayne 'The Bork' Johnson")
+            								p.addAchievement(a);
+            							}
+            							if(b.getHalth() == 20 && !(r.isBottleIsTaken())) {
+            								//get achievement intocado
+            								AchievemetC a = ("Intocado")
+                    						p.addAchievement(a);
+            							}
+            							p.sumPoint(350);
                         			}
             						break;
             					case 4:
             						d.setHealth(d.getHealth() - w.getDamage());
-            						b.setScore(b.getScore() + 40);
-            						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 4 pontos de dano.";
+            						p.sumPoint(50);
+            						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 4 pontos de dano.\n";
+            						resposta += d.getDragonSpeech(w.getName());
             						if(d.getHealth() <= 0) {
-                        				b.setScore(b.getScore() + 350);
+            							if(w.getName.equals("fists")) {
+            								// get achievement the bork
+            								AchievemetC a = ("Dwayne 'The Bork' Johnson")
+            								p.addAchievement(a);
+            							}
+            							if(b.getHalth() == 20 && !(r.isBottleIsTaken())) {
+            								//get achievement intocado
+            								AchievemetC a = ("Intocado")
+                    						p.addAchievement(a);
+            							}
+            							p.sumPoint(350);
                         			}
             						break;
             					case 3:
             						d.setHealth(d.getHealth() - w.getDamage());
-            						b.setScore(b.getScore() + 30);
-            						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 3 pontos de dano.";
+            						p.sumPoint(30);
+            						resposta += "Sucesso! Voce acerta o pescoco da fera, \nfazendo 3 pontos de dano.\n";
+            						resposta += d.getDragonSpeech(w.getName());
             						if(d.getHealth() <= 0) {
-                        				b.setScore(b.getScore() + 350);
+            							if(w.getName.equals("fists")) {
+            								// get achievement the bork
+            								AchievemetC a = ("Dwayne 'The Bork' Johnson")
+            								p.addAchievement(a);
+            							}
+            							if(b.getHalth() == 20 && !(r.isBottleIsTaken())) {
+            								//get achievement intocado
+            								AchievemetC a = ("Intocado")
+                    						p.addAchievement(a);
+            							}
+            							p.sumPoint(350);
                         			}
             						break;
             					case 0:
             						b.setHealth(b.getHealth() - d.getDamage());
-            						b.setScore(b.getScore() - 50);
-            						resposta += "Errou! Seu golpe passa a centimetros do dragao. \nIleso, ele revida, fazendo 5 pontos de dano";
+            						p.sumPoint(-50);
+            						resposta += "Errou! Seu golpe passa a centimetros do dragao. \nIleso, ele revida, fazendo 5 pontos de dano\n";
+            						resposta += d.getDragonSpeech(w.getName());
             						break;
             				}
 						default:
@@ -246,7 +291,7 @@ public class GameB {
             					}
             					else {
             						b.setHealth(b.getHealth() + 4);
-            						b.setScore(b.getScore() + 30);
+            						p.sumPoint(30);
             						resposta += "Voce bebe a pocao de cura, recuperando 4 pontos de vida.";
             						resposta += "SUA VIDA: " + b.getHealth();
             						r.setBottleIsTaken(false);
@@ -254,6 +299,14 @@ public class GameB {
             				}
             				else {
             					resposta += "Voce nao tem nenhuma pocao.";
+            				}
+            				break;
+            			case "comida":
+            				if(r.isFoodIsTaken()) {
+            					resposta += "Você quer comer no meio de uma luta? Acha que isso é um vídeo game?";
+            					// get achievement detetive
+            					AchievemetC a = ("Detetive")
+                        		p.addAchievement(a);
             				}
             				break;
 						default:
@@ -264,7 +317,8 @@ public class GameB {
                 		case "vida":
                 			resposta += "SUA VIDA: " + b.getHealth();
                 			resposta += "\nVIDA DO DRAGAO: " + d.getHealth();
-                			b.setScore(b.getScore() + 10);
+                			p.sumPoint(10);
+                			break;
 						default:
 							resposta += "Opcao invalida!";
             		} 
@@ -274,12 +328,16 @@ public class GameB {
                 			d.setHealth(d.getHealth() - 1);
                 			resposta += "Voce pega uma pedrinha do chao e a atira na fera, \nfazendo 1 misero ponto de dano. Patetico.";
                 			if(d.getHealth() <= 0) {
-                				b.setScore(b.getScore() + 400);
+                				p.sumPoint(400);
                 			}
+                			break;
 						case "comida":
-							resposta += "MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o Sr. Bork sumiu... sinto sua falta...\n";
-							b.setScore(b.getScore() + 350);
-
+							resposta += "Dragão: MEU LANCHINHOOOOOOOO!!! Muito obrigado amigo, eu estava \ncom muita fome desde que o Sr. Bork sumiu... sinto sua falta...\n";
+							p.sumPoint(350);
+							// get achievement bff
+							AchievemetC a = ("Best Friends Forever")
+            				p.addAchievement(a);
+							break;
 						default:
 							resposta += "Opcao invalida!";
             		}                           
@@ -289,7 +347,6 @@ public class GameB {
    }
     
     public void save(){
-    	p.setPontuacao(b.getScore());
     	try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("dataPlayer.bin"))) {
     		oos.writeObject(p);
 		} catch (IOException e) {
