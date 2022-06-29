@@ -20,18 +20,9 @@ public class GameB {
     Weapon w = new Weapon();
     Dragon d = new Dragon();
     Room r = new Room();
-    Player p = new Player();
+    Player p;
      
     public GameB(){
-    	this.vezesAcionado++;
-    	try {
-			FileWriter fw = new FileWriter("inicializacao.txt");
-			fw.write(""+vezesAcionado);
-			fw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     	
     }
         
@@ -396,10 +387,23 @@ public class GameB {
     public String getDescription() {
     	return "Um jogo estilo rpg o qual o jogador escolhe e realiza suas ações com caixas texto, o limite é a imaginação.";
     }
+    
     public JFrame getPanel() {
     	tela = new Presentation();
     	tela.frame.setVisible(true);
     	return tela.returnPane();
+    }
+    
+    public void Start(Player p) {
+    	this.p = p;
+    	this.vezesAcionado++;
+    	try {
+			FileWriter fw = new FileWriter("inicializacao.txt");
+			fw.write(""+vezesAcionado);
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
 }
