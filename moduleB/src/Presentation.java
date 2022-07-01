@@ -1,98 +1,57 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Presentation {
+public class Presentation extends JPanel {
 
-	JFrame frame;
-	private JTextField tfAcoes;
-	private String test;
-	JTextArea txtrAperteOBoto = new JTextArea();
-	private JButton btnNewButton;
 	GameB b = new GameB();
-	
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Presentation window = new Presentation();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JTextField tfAcoes;
 
-	/**
-	 * Create the application.
-	 */
 	public Presentation() {
-		initialize();
-	}
+		setForeground(Color.LIGHT_GRAY);
+		setLayout(null);
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-
-	public JFrame returnPane() {
-		return frame;
-	}
-	
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setEnabled(false);
-		frame.setBounds(100, 100, 500, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		tfAcoes = new JTextField();
-		tfAcoes.setBounds(99, 356, 194, 20);
-		frame.getContentPane().add(tfAcoes);
-		tfAcoes.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("A\u00E7\u00F5es");
-		lblNewLabel.setBounds(54, 359, 40, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JButton btnNewButton_1 = new JButton("Fazer");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				test = tfAcoes.getText();
-				txtrAperteOBoto.setText(b.acoes(test));
-				b.save();
-			}
-		});
-		btnNewButton_1.setBounds(303, 355, 108, 23);
-		frame.getContentPane().add(btnNewButton_1);
-		txtrAperteOBoto.setText("Aperte o bot\u00E3o start para iniciar. \r\nDigite info e aperte start para ver os comandos do jogo");
+		JTextArea txtrAperteOBoto = new JTextArea();
 		txtrAperteOBoto.setForeground(Color.WHITE);
-		
-		
+		txtrAperteOBoto.setText(
+				"Aperte o bot\u00E3o START para come\u00E7ar.\r\nDigite info e aperte start para ver os comandos do jogo.");
 		txtrAperteOBoto.setBackground(Color.DARK_GRAY);
-		txtrAperteOBoto.setBounds(10, 11, 464, 300);
-		frame.getContentPane().add(txtrAperteOBoto);
-		
-		btnNewButton = new JButton("Start");
+		txtrAperteOBoto.setBounds(10, 11, 480, 368);
+		add(txtrAperteOBoto);
+
+		JButton btnNewButton = new JButton("ACOES");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String nsei = b.info(tfAcoes.getText());
-				txtrAperteOBoto.setText(nsei);				
+				String test = tfAcoes.getText();
+				txtrAperteOBoto.setText(b.acoes(test));
 			}
 		});
-		btnNewButton.setBounds(153, 387, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(358, 398, 89, 23);
+		add(btnNewButton);
+
+		tfAcoes = new JTextField();
+		tfAcoes.setBounds(136, 399, 177, 20);
+		add(tfAcoes);
+		tfAcoes.setColumns(10);
+
+		JButton btnNewButton_1 = new JButton("START");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nsei = b.info(tfAcoes.getText());
+				txtrAperteOBoto.setText(nsei);
+			}
+		});
+		btnNewButton_1.setBounds(190, 430, 89, 23);
+		add(btnNewButton_1);
+
+		JLabel lblNewLabel = new JLabel("A\u00C7\u00D5ES:");
+		lblNewLabel.setBounds(70, 402, 46, 14);
+		add(lblNewLabel);
+
 	}
 }
